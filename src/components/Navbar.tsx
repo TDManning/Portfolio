@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
           <li><Link to="/" className="hover:text-teal-500 dark:hover:text-teal-300 transition">Home</Link></li>
           <li><Link to="/about" className="hover:text-teal-500 dark:hover:text-teal-300 transition">About</Link></li>
           <li><Link to="/projects" className="hover:text-teal-500 dark:hover:text-teal-300 transition">Projects</Link></li>
-          <li><Link to="/tools" className="hover:text-teal-500 dark:hover:text-teal-300 transition">Skills</Link></li>
+          <li><Link to="/skills" className="hover:text-teal-500 dark:hover:text-teal-300 transition">Skills</Link></li>
         </ul>
 
         <button 
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
           <li><Link to="/" className="block text-lg" onClick={() => setMenuOpen(false)}>Home</Link></li>
           <li><Link to="/about" className="block text-lg" onClick={() => setMenuOpen(false)}>About</Link></li>
           <li><Link to="/projects" className="block text-lg" onClick={() => setMenuOpen(false)}>Projects</Link></li>
-          <li><Link to="/tools" className="block text-lg" onClick={() => setMenuOpen(false)}>Skills</Link></li>
+          <li><Link to="/skills" className="block text-lg" onClick={() => setMenuOpen(false)}>Skills</Link></li>
         </ul>
       )}
     </nav>

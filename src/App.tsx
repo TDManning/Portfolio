@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
-import Tools from "./sections/Tools";
+import Skills from "./sections/Skills";
 import "./index.css";
 
 const App: React.FC = () => {
@@ -17,7 +17,6 @@ const App: React.FC = () => {
 
 const AppContent: React.FC = () => {
   const location = useLocation(); 
-
   const isHomePage = location.pathname === "/";
 
   return (
@@ -28,7 +27,7 @@ const AppContent: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/tools" element={<Tools />} />
+          <Route path="/skills" element={<Skills />} />
         </Routes>
       </main>
     </div>

@@ -1,7 +1,15 @@
 import React from "react";
 import AnimatedDiv from "../components/AnimatedDiv";
+import { useNavigate } from "react-router-dom";
 
 export const Home: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log("Button clicked: navigating to /projects");
+    navigate('/projects');
+  };
+
   return (
     <section 
       className="relative flex flex-col lg:flex-row items-center justify-between min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white px-8 sm:px-14 lg:px-24 overflow-hidden transition-all duration-300 mt-[-1px] pt-[80px] sm:pt-0"
@@ -32,8 +40,10 @@ export const Home: React.FC = () => {
               </p>
 
               <div className="mt-6 sm:mt-8 lg:mt-10">
-                <button className="px-6 py-3 bg-teal-500 dark:bg-teal-700 hover:bg-teal-400 dark:hover:bg-teal-600 text-white font-medium text-lg rounded-full transition-all shadow-lg">
-                  Explore My Work
+                <button
+                onClick={handleClick}
+                className="px-6 py-3 bg-teal-500 dark:bg-teal-700 hover:bg-teal-400 dark:hover:bg-teal-600 text-white font-medium text-lg rounded-full transition-all shadow-lg">
+                Explore My Work
                 </button>
               </div>
             </div>
