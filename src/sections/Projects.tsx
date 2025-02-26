@@ -1,96 +1,108 @@
 import { useState } from "react";
 import AnimatedDiv from "../components/AnimatedDiv";
+import festivalScheduler from "./FestivalScheduler.gif"; 
+import moodBoost from "./MoodBoost.gif"; 
+import motivationalPosters from "./MotivationalPosters.gif"; 
+import tracker from "./Tracker.gif"; 
+import littleShop from "./littleShop.gif"; 
+import rancidTomatillos from "./RancidTomatillos.gif"; 
 
 const projects = [
   {
     title: "Music Festival Scheduler",
-    description: "A React & Rails app for an admin to manage festival schedules.",
+    description: "A React & Rails app for admin to manage festival schedules.",
     duration: "16 hours",
     collaboration: "Solo Project",
     highlights: [
-      "Full application built in under 16 hours",
-      "Implemented a fully RESTful Rails API",
-      "Fully responsive UI", 
-      "Utilized React state management",
+      "Completed both the frontend and backend in under 16 hours as part of a take-home challenge.",
+      "Connected with a RESTful Rails API to fetch shows and handle CRUD operations for user schedules.",
+      "Incorporated robust error handling to maintain a smooth user experience during API failures.",
+      "Leveraged React functional components, hooks, and a responsive grid layout to ensure maintainability."
     ],
-    images: ["/homepage.png", "/homepageresponsive.png", "/manageschedule.png"], 
-    techStack: ["React", "Javascript", "CSS", "Rails", "PostgreSQL"],
+    video: [festivalScheduler],
+    techStack: ["React", "React Router", "Javascript", "CSS", "Rails", "PostgreSQL", "RSpec"],
     github_frontend: "https://github.com/TDManning/festival-scheduler-fe",
     github_backend: "https://github.com/TDManning/festival-schedule-api",
-    liveDemo: "https://music-festival-demo.com",
   },
   {
-    title: "E-Commerce App",
-    description: "An e-commerce platform with cart and checkout features.",
-    duration: "4 weeks",
+    title: "Mood Boost",
+    description: "A uplifting site with jokes, quotes, breathing exercise and user tracking.",
+    duration: "2 weeks",
     collaboration: "Group Project",
     highlights: [
-      "Implemented Stripe API for payments",
-      "Optimized database queries for performance",
-      "Built a custom authentication system",
+      "Employed a modular SOA design to ensure smooth integration with the React frontend.",
+      "Integrated robust testing for frontend and backend using Cypress, RSpec, Factory Bot, Faker, Shoulda-Matchers, and SimpleCov.",
+      "Integrated third-party APIs to fetch jokes and quotes.",
+      "Collaborated with a diverse team using GitHub project boards, a disciplined git workflow, and agile methodologies to streamline project management and decision-making.",
     ],
-    images: ["/images/ecommerce-1.gif"], 
-    techStack: ["Next.js", "TypeScript", "Tailwind", "Firebase"],
-    github: "https://github.com/yourusername/ecommerce-app",
-    liveDemo: "https://ecommerce-demo.com",
+    video: [moodBoost],
+    techStack: ["React", "Javascript", "CSS", "Rails", "PostgreSQL", "Cypress", "RSpec"],
+    github_frontend: "https://github.com/TDManning/mood_boost_fe",
+    github_backend: "https://github.com/TDManning/mood_boost_be",
+    liveDemo: "https://mood-boost-fe.vercel.app/",
   },
   {
-    title: "E-Commerce App",
-    description: "An e-commerce platform with cart and checkout features.",
-    duration: "4 weeks",
+    title: "Tracker by Turing",
+    description: "A full-featured web app for managing job applications, contacts, and companies.",
+    duration: "3.5 weeks",
     collaboration: "Group Project",
     highlights: [
-      "Implemented Stripe API for payments",
-      "Optimized database queries for performance",
-      "Built a custom authentication system",
+      "Continuous integration and testing via RSpec, Cypress and continuous integration through CircleCI.",
+      "Implemented robust user registration and login functionality to ensure secure authentication and effective user management for the application.",
+      "Utilized GitHub project boards and a structured git workflow to maintain agile development practices and efficient team collaboration.",
     ],
-    images: ["/images/ecommerce.gif"],
-    techStack: ["Next.js", "TypeScript", "Tailwind", "Firebase"],
-    github: "https://github.com/yourusername/ecommerce-app",
-    liveDemo: "https://ecommerce-demo.com",
+    video: [tracker],
+    techStack: ["React", "TypeScript", "Rails", "PostgreSQL", "Cypress", "RSpec", "CircleCI"],
+    github_frontend: "https://github.com/turingschool/tracker-crm-fe",
+    github_backend: "https://github.com/turingschool/tracker-crm",
+    liveDemo: "https://tracker-crm-fe-38f7cf1aaca5.herokuapp.com/",
   },
   {
-    title: "E-Commerce App",
-    description: "An e-commerce platform with cart and checkout features.",
-    duration: "4 weeks",
+    title: "Little Shop",
+    description: "Service-Oriented E-Commerce Application.",
+    duration: "2 weeks",
     collaboration: "Group Project",
     highlights: [
-      "Implemented Stripe API for payments",
-      "Optimized database queries for performance",
-      "Built a custom authentication system",
+      "Developed Little Shop as a group project using a service-oriented architecture with separate backend (Rails API) and frontend communicating via APIs.",
+      "implemented CRUD operations, one-to-many relationships, and model validations.",
+      "Developed a frontend (using a Vite starter repo) that consumes the Rails API, incorporating CSS adjustments and JavaScript refactors for optimal data display.",
+      "Collaborated as a team by breaking down complex tasks into manageable pieces and applying agile principles."
     ],
-    images: ["/images/ecommerce.gif"],
-    techStack: ["Next.js", "TypeScript", "Tailwind", "Firebase"],
-    github: "https://github.com/yourusername/ecommerce-app",
-    liveDemo: "https://ecommerce-demo.com",
+    video: [littleShop],
+    techStack: ["Javascript", "CSS", "Rails", "PostgreSQL", "RSpec"],
+    github_frontend: "https://github.com/TDManning/little-shop-fe",
+    github_backend: "https://github.com/TDManning/little-shop-be",
   },
   {
-    title: "E-Commerce App",
-    description: "An e-commerce platform with cart and checkout features.",
-    duration: "4 weeks",
-    collaboration: "Group Project",
+    title: "Hang in There",
+    description: "Users can view, create and save motivational (or unmotivational) posters.",
+    duration: "1 week",
+    collaboration: "Solo Project-Frontend, Paired Project-Backend",
     highlights: [
-      "Implemented Stripe API for payments",
-      "Optimized database queries for performance",
-      "Built a custom authentication system",
+      "Emphasized efficient DOM manipulation, clean JavaScript practices, and flexbox-based CSS for precise layout control.",
+      "Deployed to Heroku CLI to deploy, pushing code updates, and running migrations and seeds to ensure continuous, seamless updates.",
+      "Provides endpoints to create, retrieve, update, and delete poster records, supporting both random generation and custom user inputs.",
     ],
-    images: ["/images/ecommerce.gif"],
-    techStack: ["Next.js", "TypeScript", "Tailwind", "Firebase"],
-    github: "https://github.com/yourusername/ecommerce-app",
-    liveDemo: "https://ecommerce-demo.com",
+    video: [motivationalPosters],
+    techStack: ["Rails", "JavaScript", "CSS", "PostgreSQL", "Node.js", "Heroku"],
+    github_frontend: "https://github.com/TDManning/hang-in-there",
+    github_backend: "https://github.com/TDManning/hang_in_there_api",
+    liveDemo: "https://github.com/TDManning/hang-in-there",
   },
+
   {
-    title: "E-Commerce App",
-    description: "An e-commerce platform with cart and checkout features.",
-    duration: "4 weeks",
-    collaboration: "Group Project",
+    title: "Rancid Tomatillos",
+    description: "A movie website where users can upvote, downvote and view movie details.",
+    duration: "1 weeks",
+    collaboration: "Paired Project",
     highlights: [
-      "Implemented Stripe API for payments",
-      "Optimized database queries for performance",
-      "Built a custom authentication system",
+      "Implemented multi-page navigation with React Router v6.",
+      "Managed asynchronous data flows by making multiple network requests to fetch and display movie data.",
+      "Integrated comprehensive testing with Cypress to ensure robust application performance.",
+      "Utilized detailed planning and communication tools for wireframing, component architecture design and project management"
     ],
-    images: ["/images/ecommerce.gif"],
-    techStack: ["Next.js", "TypeScript", "Tailwind", "Firebase"],
+    video: [rancidTomatillos],
+    techStack: ["React", "JavaScript", "CSS", "HTML", "Cypress"],
     github: "https://github.com/yourusername/ecommerce-app",
     liveDemo: "https://ecommerce-demo.com",
   },
@@ -98,12 +110,17 @@ const projects = [
 
 export const Projects: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null);
+  const [selectedProject, setSelectedProject] =
+    useState<typeof projects[number] | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [playAnimation, setPlayAnimation] = useState(false);
 
   const openModal = (project: typeof projects[number]) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
+    if (project.title === "Music Festival Scheduler") {
+      setPlayAnimation(false);
+    }
     setIsModalOpen(true);
   };
 
@@ -117,110 +134,59 @@ export const Projects: React.FC = () => {
 
   const nextImage = () => {
     if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length);
+      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.video.length);
     }
   };
 
   const prevImage = () => {
     if (selectedProject) {
       setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.images.length - 1 : prev - 1
+        prev === 0 ? selectedProject.video.length - 1 : prev - 1
       );
     }
+  };
+
+  const getThumbnailSrc = (project: typeof projects[number]) => {
+    if (project.title === "Music Festival Scheduler") {
+      return "/homepage.png";
+    } else if (project.title === "Mood Boost") {
+      return "/Home-Page.png";
+    } else if (project.title === "Tracker") {
+      return "/TrackerImage.png";
+    } else if (project.title === "Little Shop") {
+      return "/LitleShopHome.png";
+    } else if (project.title === "Motivational Posters") {
+      return "/UnmotivationalScreenshot.png";
+    } else if (project.title === "Rancid Tomatillos") {
+      return "/Rancid.png";
+   
+    }
+    return project.video[0];
   };
 
   return (
     <section className="p-8">
       <AnimatedDiv>
-        <h1 className="text-5xl font-extrabold text-center text-white">My Projects</h1>
+        <h1 className="text-5xl font-extrabold text-center text-white">
+          My Projects
+        </h1>
         <p className="mt-2 text-lg text-center text-gray-400 italic">
-          "Code, coffee, and creativity – a developer's perfect trio."
-        </p>
-        <p className="mt-4 text-center text-white">
-          Welcome to my projects page! Here, you'll find a collection of apps I've built,
-          ranging from solo experiments to collaborative team projects.
+          Welcome to my projects page! Here, you'll find a collection of apps I've built, ranging from solo experiments to collaborative team projects.
         </p>
       </AnimatedDiv>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {projects.map((project, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-gray-200 min-h-[800px]">
+          <div
+            key={index}
+            className="relative cursor-pointer aspect-square overflow-hidden rounded-lg"
+            onClick={() => openModal(project)}
+          >
             <img
-              src={project.images[0]}
+              src={getThumbnailSrc(project)}
               alt={project.title}
-              className="w-full h-100 object-cover rounded-lg cursor-pointer"
-              onClick={() => openModal(project)}
+              className="object-cover w-full h-full"
             />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 text-gray-900">
-              {project.title}
-            </h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-600">
-              {project.duration} | {project.collaboration}
-            </p>
-            <p className="mt-2 text-base md:text-lg lg:text-xl text-gray-700">
-              {project.description}
-            </p>
-
-            <ul className="mt-2 list-disc pl-5 text-gray-700 text-base md:text-lg lg:text-xl">
-              {project.highlights.map((highlight, i) => (
-                <li key={i}>{highlight}</li>
-              ))}
-            </ul>
-
-            <div className="flex gap-2 mt-4 flex-wrap">
-              {project.techStack.map((tech, i) => (
-                <span
-                  key={i}
-                  className="bg-gray-300 text-base md:text-lg lg:text-xl px-2 py-1 rounded-full text-gray-900"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-4 flex gap-4">
-              {project.github_frontend ? (
-                <>
-                  <a
-                    href={project.github_frontend}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline font-medium text-base md:text-lg lg:text-xl"
-                  >
-                    GitHub Frontend
-                  </a>
-                  {project.github_backend && (
-                    <a
-                      href={project.github_backend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline font-medium text-base md:text-lg lg:text-xl"
-                    >
-                      GitHub Backend
-                    </a>
-                  )}
-                </>
-              ) : project.github ? (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline font-medium text-base md:text-lg lg:text-xl"
-                >
-                  GitHub
-                </a>
-              ) : null}
-
-              {project.liveDemo && (
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline font-medium text-base md:text-lg lg:text-xl"
-                >
-                  Live Demo
-                </a>
-              )}
-            </div>
           </div>
         ))}
       </div>
@@ -231,26 +197,130 @@ export const Projects: React.FC = () => {
           onClick={handleBackgroundClick}
         >
           <div
-            className="relative bg-black p-6 rounded-lg max-w-3xl w-full text-white"
+            className="relative bg-black p-8 rounded-lg max-w-5xl w-full text-white"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-3xl font-bold text-white">{selectedProject.title}</h2>
-            <div className="flex items-center justify-center mt-4">
-              {selectedProject.images.length > 1 && (
-                <button onClick={prevImage} className="mr-4 text-white text-3xl font-bold">
-                  &lt;
-                </button>
+            <h2 className="text-4xl font-bold mb-4">{selectedProject.title}</h2>
+            <div className="flex items-center justify-center mb-6">
+              {selectedProject.title === "Music Festival Scheduler" ? (
+                <div
+                  onClick={() => setPlayAnimation(true)}
+                  className="relative cursor-pointer"
+                >
+                  <img
+                    src={playAnimation ? festivalScheduler : "/homepage.png"}
+                    alt="Festival Scheduler"
+                    className="w-full max-h-[90vh] object-contain rounded"
+                  />
+                  {!playAnimation && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <button
+                        className="bg-blue-600 text-white text-6xl rounded-full p-6 opacity-90 hover:opacity-100 focus:outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setPlayAnimation(true);
+                        }}
+                      >
+                        ▶
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <>
+                  {selectedProject.video.length > 1 && (
+                    <button
+                      onClick={prevImage}
+                      className="mr-4 text-white text-3xl font-bold"
+                    >
+                      &lt;
+                    </button>
+                  )}
+                  <img
+                    src={selectedProject.video[currentImageIndex]}
+                    alt={selectedProject.title}
+                    className="w-full max-h-[90vh] object-contain rounded"
+                  />
+                  {selectedProject.video.length > 1 && (
+                    <button
+                      onClick={nextImage}
+                      className="ml-4 text-white text-3xl font-bold"
+                    >
+                      &gt;
+                    </button>
+                  )}
+                </>
               )}
-              <img
-                src={selectedProject.images[currentImageIndex]}
-                alt={selectedProject.title}
-                className="w-full max-h-[90vh] object-contain rounded"
-              />
-              {selectedProject.images.length > 1 && (
-                <button onClick={nextImage} className="ml-4 text-white text-3xl font-bold">
-                  &gt;
-                </button>
-              )}
+            </div>
+            <div className="mt-4">
+              <p className="text-lg text-gray-200 leading-relaxed">
+                {selectedProject.description}
+              </p>
+              <p className="mt-2 text-sm text-gray-400">
+                {selectedProject.duration} | {selectedProject.collaboration}
+              </p>
+              <hr className="my-4 border-gray-700" />
+              <ul className="mt-4 list-none space-y-2">
+                {selectedProject.highlights.map((highlight, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="mr-2 text-blue-500">•</span>
+                    <span className="text-base text-gray-200">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {selectedProject.techStack.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="bg-gray-700 text-gray-100 px-3 py-1 rounded-full text-sm"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-6 flex gap-4">
+                {selectedProject.github_frontend ? (
+                  <>
+                    <a
+                      href={selectedProject.github_frontend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
+                    >
+                      GitHub Frontend
+                    </a>
+                    {selectedProject.github_backend && (
+                      <a
+                        href={selectedProject.github_backend}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
+                      >
+                        GitHub Backend
+                      </a>
+                    )}
+                  </>
+                ) : selectedProject.github ? (
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
+                  >
+                    GitHub
+                  </a>
+                ) : null}
+                {selectedProject.liveDemo && (
+                  <a
+                    href={selectedProject.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>
