@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const DarkModeToggle: React.FC = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(
-    localStorage.getItem("theme") === "dark"
-  );
+  const getInitialTheme = () => {
+    if (localStorage.getItem("theme") === "dark") {
+      return true; 
+    } else {
+      return false;
+    }
+  };
+
+  const [darkMode, setDarkMode] = useState(getInitialTheme);
 
   useEffect(() => {
     if (darkMode) {
@@ -17,10 +24,10 @@ const DarkModeToggle: React.FC = () => {
 
   return (
     <button
-      className="bg-gray-700 text-white px-3 py-1 rounded-md text-sm hover:bg-gray-600 transition-all duration-300"
       onClick={() => setDarkMode(!darkMode)}
+      className="p-2 rounded-full text-xl transition duration-300"
     >
-      {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      {darkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-700" />}
     </button>
   );
 };
