@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.26d23682.css",
+    "main.js": "/Portfolio/static/js/main.431087f4.js",
+    "static/media/FestivalScheduler.gif": "/Portfolio/static/media/FestivalScheduler.8903d5bde645ec2b46db.gif",
+    "static/media/RancidTomatillos.gif": "/Portfolio/static/media/RancidTomatillos.6ce5c4a946a2be9101de.gif",
+    "static/media/littleShop.gif": "/Portfolio/static/media/littleShop.92c5691cc3fdad3919e9.gif",
+    "static/media/MotivationalPosters.gif": "/Portfolio/static/media/MotivationalPosters.739fe0f4d95e9db3cce4.gif",
+    "static/media/RomCom.gif": "/Portfolio/static/media/RomCom.d8ce0eff5744d9b33611.gif",
+    "static/media/MoodBoost.gif": "/Portfolio/static/media/MoodBoost.528d6c42692eadfbb796.gif",
+    "static/media/ColoRandom.gif": "/Portfolio/static/media/ColoRandom.17defd30e233c7852ac8.gif",
+    "static/media/Tracker.gif": "/Portfolio/static/media/Tracker.15998f6f97dc18ce348a.gif",
+    "static/media/RockPaperScissor.gif": "/Portfolio/static/media/RockPaperScissor.d54baeaa29af134c6b41.gif",
+    "index.html": "/Portfolio/index.html",
+    "main.26d23682.css.map": "/Portfolio/static/css/main.26d23682.css.map",
+    "main.431087f4.js.map": "/Portfolio/static/js/main.431087f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26d23682.css",
+    "static/js/main.431087f4.js"
+  ]
+}
