@@ -96,7 +96,7 @@ const projects = [
   {
     title: "Rancid Tomatillos",
     description: "A movie website where users can upvote, downvote and view movie details",
-    duration: "1 week",
+    duration: "5 days",
     collaboration: "Paired Project",
     highlights: [
       "Implemented multi-page navigation with React Router v6.",
@@ -111,13 +111,12 @@ const projects = [
   },
   {
     title: "RomCom",
-    description: "View positive affirmations and mantras",
+    description: "Generate, create and save book covers",
     duration: "5 days",
-    collaboration: "Solo Project",
+    collaboration: "Paired Project",
     highlights: [
-      "Learn to create a responsive user interface that adapts gracefully to various screen sizes and devices.",
-      "Understand how to listen for user events and update the DOM accordingly, ensuring interactive features work as intended.",
-      "Implement error handling and user feedback mechanisms (e.g., disabling buttons or displaying alerts) to improve the overall user experience."
+      "Manipulate the page after it has loaded adding, removing, and updating elements on the DOM.",
+      "Build out functionality using functions that show trends toward SRP.",
     ],
     video: [romCom],
     techStack: ["JavaScript", "CSS", "HTML"],
