@@ -6,7 +6,7 @@ import motivationalPosters from "./MotivationalPosters.gif";
 import tracker from "./Tracker.gif"; 
 import littleShop from "./littleShop.gif"; 
 import rancidTomatillos from "./RancidTomatillos.gif"; 
-import selfCare from "./SelfCare.gif"; 
+import romCom from "./RomCom.gif"; 
 import coloRandom from "./ColoRandom.gif"; 
 import rockPaperScissor from "./RockPaperScissor.gif"
 
@@ -110,7 +110,7 @@ const projects = [
     liveDemo: "https://rancid-tomatillos-a8epnhzkd-tdmannings-projects.vercel.app/",
   },
   {
-    title: "Self Care Center",
+    title: "RomCom",
     description: "View positive affirmations and mantras",
     duration: "5 days",
     collaboration: "Solo Project",
@@ -119,7 +119,7 @@ const projects = [
       "Understand how to listen for user events and update the DOM accordingly, ensuring interactive features work as intended.",
       "Implement error handling and user feedback mechanisms (e.g., disabling buttons or displaying alerts) to improve the overall user experience."
     ],
-    video: [selfCare],
+    video: [romCom],
     techStack: ["JavaScript", "CSS", "HTML"],
     github: "https://github.com/TDManning/self-care-center",
     liveDemo: "https://tdmanning.github.io/self-care-center/",
@@ -167,9 +167,6 @@ export const Projects: React.FC = () => {
   const openModal = (project: typeof projects[number]) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
-    if (project.title === "Music Festival Scheduler") {
-      setPlayAnimation(false);
-    }
     setIsModalOpen(true);
   };
 
@@ -197,7 +194,7 @@ export const Projects: React.FC = () => {
 
   const getThumbnailSrc = (project: typeof projects[number]) => {
     if (project.title === "Music Festival Scheduler") {
-      return "/homepage.png";
+      return "/homepage.png"; // Using PNG instead of GIF
     } else if (project.title === "Mood Boost") {
       return "/Home-Page.png";
     } else if (project.title === "Tracker, by Turing") {
@@ -208,8 +205,8 @@ export const Projects: React.FC = () => {
       return "/motivational-posters.png";
     } else if (project.title === "Rancid Tomatillos") {
       return "/Rancid.png";
-    } else if (project.title === "Self Care Center") {
-      return "/SelfCareCenter.png";
+    } else if (project.title === "RomCom") {
+      return "/RomCom.png";
     } else if (project.title === "ColoRandom") {
       return "/ColoRandom.png";
     } else if (project.title === "Rock Paper Scissors") {
@@ -221,7 +218,7 @@ export const Projects: React.FC = () => {
   return (
     <section className="p-8">
       <AnimatedDiv>
-      <h1 className="text-5xl font-extrabold text-center text-black dark:text-white">
+        <h1 className="text-5xl font-extrabold text-center text-black dark:text-white">
           My Projects
         </h1>
         <p className="mt-2 text-lg text-center text-gray-400 italic">
@@ -229,22 +226,30 @@ export const Projects: React.FC = () => {
         </p>
       </AnimatedDiv>
 
+      {/* Project Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">  
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="relative cursor-pointer aspect-[4/3] overflow-hidden rounded-lg border-4 border-white bg-white p-4 shadow-lg"
-            onClick={() => openModal(project)}
-            >
-          <img
-            src={getThumbnailSrc(project)}
-            alt={project.title}
-            className="object-contain w-full h-full rounded-lg"
-          />
-        </div>
-      ))}
-    </div>
+        {projects.map((project, index) => {
+          const thumbnailSrc = getThumbnailSrc(project);
+          const isPNG = thumbnailSrc.endsWith(".png");
 
+          return (
+            <div
+              key={index}
+              className={`relative cursor-pointer aspect-[4/3] overflow-hidden rounded-lg border-4 border-white bg-white p-4 shadow-lg 
+                ${isPNG ? "border-black" : ""}`} // Apply black outline to PNGs
+              onClick={() => openModal(project)}
+            >
+              <img
+                src={thumbnailSrc}
+                alt={project.title}
+                className="object-contain w-full h-full rounded-lg"
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Modal */}
       {isModalOpen && selectedProject && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center p-4"
@@ -256,30 +261,13 @@ export const Projects: React.FC = () => {
           >
             <h2 className="text-4xl font-bold mb-4">{selectedProject.title}</h2>
             <div className="flex items-center justify-center mb-6">
+              {/* Display GIF without Play Button for Festival Scheduler */}
               {selectedProject.title === "Music Festival Scheduler" ? (
-                <div
-                  onClick={() => setPlayAnimation(true)}
-                  className="relative cursor-pointer"
-                >
-                  <img
-                    src={playAnimation ? festivalScheduler : "/homepage.png"}
-                    alt="Festival Scheduler"
-                    className="w-full max-h-[90vh] object-contain rounded"
-                  />
-                  {!playAnimation && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <button
-                        className="bg-blue-600 text-white text-6xl rounded-full p-6 opacity-90 hover:opacity-100 focus:outline-none"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setPlayAnimation(true);
-                        }}
-                      >
-                        ▶
-                      </button>
-                    </div>
-                  )}
-                </div>
+                <img
+                  src={festivalScheduler}
+                  alt="Festival Scheduler"
+                  className="w-full max-h-[90vh] object-contain rounded"
+                />
               ) : (
                 <>
                   {selectedProject.video.length > 1 && (
@@ -305,76 +293,6 @@ export const Projects: React.FC = () => {
                   )}
                 </>
               )}
-            </div>
-            <div className="mt-4">
-              <p className="text-lg text-gray-200 leading-relaxed">
-                {selectedProject.description}
-              </p>
-              <p className="mt-2 text-sm text-gray-400">
-                {selectedProject.duration} | {selectedProject.collaboration}
-              </p>
-              <hr className="my-4 border-gray-700" />
-              <ul className="mt-4 list-none space-y-2">
-                {selectedProject.highlights.map((highlight, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="mr-2 text-blue-500">•</span>
-                    <span className="text-base text-gray-200">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {selectedProject.techStack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-gray-700 text-gray-100 px-3 py-1 rounded-full text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-6 flex gap-4">
-                {selectedProject.github_frontend ? (
-                  <>
-                    <a
-                      href={selectedProject.github_frontend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
-                    >
-                      GitHub Frontend
-                    </a>
-                    {selectedProject.github_backend && (
-                      <a
-                        href={selectedProject.github_backend}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
-                      >
-                        GitHub Backend
-                      </a>
-                    )}
-                  </>
-                ) : selectedProject.github ? (
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
-                  >
-                    GitHub
-                  </a>
-                ) : null}
-                {selectedProject.liveDemo && (
-                  <a
-                    href={selectedProject.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm"
-                  >
-                    Live Demo
-                  </a>
-                )}
-              </div>
             </div>
           </div>
         </div>
