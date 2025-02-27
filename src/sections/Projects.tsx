@@ -6,11 +6,14 @@ import motivationalPosters from "./MotivationalPosters.gif";
 import tracker from "./Tracker.gif"; 
 import littleShop from "./littleShop.gif"; 
 import rancidTomatillos from "./RancidTomatillos.gif"; 
+import selfCare from "./SelfCare.gif"; 
+import coloRandom from "./ColoRandom.gif"; 
+import rockPaperScissor from "./RockPaperScissor.gif"
 
 const projects = [
   {
     title: "Music Festival Scheduler",
-    description: "A React & Rails app for admin to manage festival schedules.",
+    description: "A React & Rails app for admin to manage festival schedules",
     duration: "16 hours",
     collaboration: "Solo Project",
     highlights: [
@@ -26,7 +29,7 @@ const projects = [
   },
   {
     title: "Mood Boost",
-    description: "A uplifting site with jokes, quotes, breathing exercise and user tracking.",
+    description: "An uplifting site with jokes, quotes, breathing exercise and user tracking",
     duration: "2 weeks",
     collaboration: "Group Project",
     highlights: [
@@ -42,8 +45,8 @@ const projects = [
     liveDemo: "https://mood-boost-fe.vercel.app/",
   },
   {
-    title: "Tracker by Turing",
-    description: "A full-featured web app for managing job applications, contacts, and companies.",
+    title: "Tracker, by Turing",
+    description: "A full-featured web app for managing job applications, contacts, and companies",
     duration: "3.5 weeks",
     collaboration: "Group Project",
     highlights: [
@@ -59,7 +62,7 @@ const projects = [
   },
   {
     title: "Little Shop",
-    description: "Service-Oriented E-Commerce Application.",
+    description: "Service-Oriented E-Commerce Application",
     duration: "2 weeks",
     collaboration: "Group Project",
     highlights: [
@@ -74,8 +77,8 @@ const projects = [
     github_backend: "https://github.com/TDManning/little-shop-be",
   },
   {
-    title: "Hang in There",
-    description: "Users can view, create and save motivational (or unmotivational) posters.",
+    title: "Hang In There",
+    description: "Users can view, create and save motivational (or unmotivational) posters",
     duration: "1 week",
     collaboration: "Solo Project-Frontend, Paired Project-Backend",
     highlights: [
@@ -92,8 +95,8 @@ const projects = [
 
   {
     title: "Rancid Tomatillos",
-    description: "A movie website where users can upvote, downvote and view movie details.",
-    duration: "1 weeks",
+    description: "A movie website where users can upvote, downvote and view movie details",
+    duration: "1 week",
     collaboration: "Paired Project",
     highlights: [
       "Implemented multi-page navigation with React Router v6.",
@@ -103,8 +106,54 @@ const projects = [
     ],
     video: [rancidTomatillos],
     techStack: ["React", "JavaScript", "CSS", "HTML", "Cypress"],
-    github: "https://github.com/yourusername/ecommerce-app",
-    liveDemo: "https://ecommerce-demo.com",
+    github: "https://github.com/TDManning/rancid-tomatillos",
+    liveDemo: "https://rancid-tomatillos-a8epnhzkd-tdmannings-projects.vercel.app/",
+  },
+  {
+    title: "Self Care Center",
+    description: "View positive affirmations and mantras",
+    duration: "5 days",
+    collaboration: "Solo Project",
+    highlights: [
+      "Learn to create a responsive user interface that adapts gracefully to various screen sizes and devices.",
+      "Understand how to listen for user events and update the DOM accordingly, ensuring interactive features work as intended.",
+      "Implement error handling and user feedback mechanisms (e.g., disabling buttons or displaying alerts) to improve the overall user experience."
+    ],
+    video: [selfCare],
+    techStack: ["JavaScript", "CSS", "HTML"],
+    github: "https://github.com/TDManning/self-care-center",
+    liveDemo: "https://tdmanning.github.io/self-care-center/",
+  },
+  {
+    title: "ColoRandom",
+    description: "A movie website where users can upvote, downvote and view movie details.",
+    duration: "1 week",
+    collaboration: "Group Project",
+    highlights: [
+      "Successfully implemented all required game features, including tracking player wins and dynamically updating the UI.",
+      "Ensured functions adhered to the Single Responsibility Principle (SRP) and were DRY.",
+      "Utilized semantic HTML elements to improve readability and accessibility.",
+      "Used event delegation to efficiently handle dynamic interactions."
+    ],
+    video: [coloRandom],
+    techStack: ["JavaScript", "CSS", "HTML"],
+    github: "https://github.com/TDManning/coloRandomSite",
+    liveDemo: "https://tdmanning.github.io/coloRandomSite/",
+  },
+  {
+    title: "Rock Paper Scissors",
+    description: "A Rock, Paper, Scissors game with an animal themed advanced mode",
+    duration: "1 week",
+    collaboration: "Solo Project",
+    highlights: [
+      "Utilized DOM manipulation (querySelector, innerText, classList.toggle, etc.) to dynamically update the page.",
+      "Implemented local storage (saveWinsToStorage, retrieveWinsFromStorage) to persist win records between sessions.",
+      "Broke down problems into manageable steps, debugging issues incrementally."
+    ],
+    video: [rockPaperScissor],
+    techStack: ["JavaScript", "CSS", "HTML"],
+    github: "https://github.com/TDManning/Rock-Paper-Scissors",
+    liveDemo: "https://tdmanning.github.io/Rock-Paper-Scissors/",
   },
 ];
 
@@ -151,15 +200,20 @@ export const Projects: React.FC = () => {
       return "/homepage.png";
     } else if (project.title === "Mood Boost") {
       return "/Home-Page.png";
-    } else if (project.title === "Tracker") {
+    } else if (project.title === "Tracker, by Turing") {
       return "/TrackerImage.png";
     } else if (project.title === "Little Shop") {
       return "/LitleShopHome.png";
-    } else if (project.title === "Motivational Posters") {
-      return "/UnmotivationalScreenshot.png";
+    } else if (project.title === "Hang In There") {
+      return "/motivational-posters.png";
     } else if (project.title === "Rancid Tomatillos") {
       return "/Rancid.png";
-   
+    } else if (project.title === "Self Care Center") {
+      return "/SelfCareCenter.png";
+    } else if (project.title === "ColoRandom") {
+      return "/ColoRandom.png";
+    } else if (project.title === "Rock Paper Scissors") {
+      return "/rock-paper-scissor.png";
     }
     return project.video[0];
   };
@@ -167,29 +221,29 @@ export const Projects: React.FC = () => {
   return (
     <section className="p-8">
       <AnimatedDiv>
-        <h1 className="text-5xl font-extrabold text-center text-white">
+      <h1 className="text-5xl font-extrabold text-center text-black dark:text-white">
           My Projects
         </h1>
         <p className="mt-2 text-lg text-center text-gray-400 italic">
-          Welcome to my projects page! Here, you'll find a collection of apps I've built, ranging from solo experiments to collaborative team projects.
+          Welcome to my projects page! Here, you'll find a collection of apps I've built, ranging from solo work to collaborative team projects.
         </p>
       </AnimatedDiv>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">  
         {projects.map((project, index) => (
           <div
             key={index}
-            className="relative cursor-pointer aspect-square overflow-hidden rounded-lg"
+            className="relative cursor-pointer aspect-[4/3] overflow-hidden rounded-lg border-4 border-white bg-white p-4 shadow-lg"
             onClick={() => openModal(project)}
-          >
-            <img
-              src={getThumbnailSrc(project)}
-              alt={project.title}
-              className="object-cover w-full h-full"
-            />
-          </div>
-        ))}
-      </div>
+            >
+          <img
+            src={getThumbnailSrc(project)}
+            alt={project.title}
+            className="object-contain w-full h-full rounded-lg"
+          />
+        </div>
+      ))}
+    </div>
 
       {isModalOpen && selectedProject && (
         <div
@@ -197,7 +251,7 @@ export const Projects: React.FC = () => {
           onClick={handleBackgroundClick}
         >
           <div
-            className="relative bg-black p-8 rounded-lg max-w-5xl w-full text-white"
+            className="relative bg-black p-8 rounded-lg w-full max-w-[90%] sm:max-w-5xl text-white max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-4xl font-bold mb-4">{selectedProject.title}</h2>
@@ -239,7 +293,7 @@ export const Projects: React.FC = () => {
                   <img
                     src={selectedProject.video[currentImageIndex]}
                     alt={selectedProject.title}
-                    className="w-full max-h-[90vh] object-contain rounded"
+                    className="w-full max-h-[60vh] object-contain rounded"
                   />
                   {selectedProject.video.length > 1 && (
                     <button
