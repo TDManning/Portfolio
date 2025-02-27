@@ -194,7 +194,7 @@ export const Projects: React.FC = () => {
 
   const getThumbnailSrc = (project: typeof projects[number]) => {
     if (project.title === "Music Festival Scheduler") {
-      return "/homepage.png"; // Using PNG instead of GIF
+      return "/homepage.png"; 
     } else if (project.title === "Mood Boost") {
       return "/Home-Page.png";
     } else if (project.title === "Tracker, by Turing") {
@@ -225,18 +225,16 @@ export const Projects: React.FC = () => {
           Welcome to my projects page! Here, you'll find a collection of apps I've built, ranging from solo work to collaborative team projects.
         </p>
       </AnimatedDiv>
-
-      {/* Project Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">  
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
         {projects.map((project, index) => {
           const thumbnailSrc = getThumbnailSrc(project);
           const isPNG = thumbnailSrc.endsWith(".png");
-
+  
           return (
             <div
               key={index}
-              className={`relative cursor-pointer aspect-[4/3] overflow-hidden rounded-lg border-4 border-white bg-white p-4 shadow-lg 
-                ${isPNG ? "border-black" : ""}`} // Apply black outline to PNGs
+              className={`relative cursor-pointer aspect-[4/3] overflow-hidden rounded-lg border-4 border-gray-300 bg-white p-4 shadow-lg 
+                ${isPNG ? "border-black hover:border-blue-800 dark:hover:border-blue-800 transition duration-200" : ""}`}
               onClick={() => openModal(project)}
             >
               <img
@@ -248,57 +246,93 @@ export const Projects: React.FC = () => {
           );
         })}
       </div>
-
-      {/* Modal */}
-      {isModalOpen && selectedProject && (
+        {isModalOpen && selectedProject && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center p-4"
           onClick={handleBackgroundClick}
         >
           <div
-            className="relative bg-black p-8 rounded-lg w-full max-w-[90%] sm:max-w-5xl text-white max-h-[90vh]"
+            className="relative bg-black p-8 rounded-lg w-full max-w-[95%] sm:max-w-[1200px] text-white max-h-[95vh] flex flex-col sm:flex-row gap-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-4xl font-bold mb-4">{selectedProject.title}</h2>
-            <div className="flex items-center justify-center mb-6">
-              {/* Display GIF without Play Button for Festival Scheduler */}
-              {selectedProject.title === "Music Festival Scheduler" ? (
+            <div className="flex flex-col items-center w-full sm:w-2/3">
+              <h2 className="text-4xl font-bold mb-4 text-center text-white-300">
+                {selectedProject.title}
+              </h2>
+              <div className="flex items-center justify-center w-full">
+                {selectedProject.video.length > 1 && (
+                  <button onClick={prevImage} className="mr-4 text-white text-3xl font-bold">
+                    &lt;
+                  </button>
+                )}
                 <img
-                  src={festivalScheduler}
-                  alt="Festival Scheduler"
-                  className="w-full max-h-[90vh] object-contain rounded"
+                  src={selectedProject.video[currentImageIndex]}
+                  alt={selectedProject.title}
+                  className="w-full max-h-[80vh] sm:max-h-[85vh] object-contain rounded-lg shadow-lg"
                 />
-              ) : (
-                <>
-                  {selectedProject.video.length > 1 && (
-                    <button
-                      onClick={prevImage}
-                      className="mr-4 text-white text-3xl font-bold"
-                    >
-                      &lt;
-                    </button>
-                  )}
-                  <img
-                    src={selectedProject.video[currentImageIndex]}
-                    alt={selectedProject.title}
-                    className="w-full max-h-[60vh] object-contain rounded"
-                  />
-                  {selectedProject.video.length > 1 && (
-                    <button
-                      onClick={nextImage}
-                      className="ml-4 text-white text-3xl font-bold"
-                    >
-                      &gt;
-                    </button>
-                  )}
-                </>
-              )}
+                {selectedProject.video.length > 1 && (
+                  <button onClick={nextImage} className="ml-4 text-white text-3xl font-bold">
+                    &gt;
+                  </button>
+                )}
+              </div>
+            </div>
+            <div className="w-full sm:w-1/3 flex flex-col justify-center">
+              <p className="text-lg text-blue-300 font-semibold leading-relaxed">
+                {selectedProject.description}
+              </p>
+  
+              <p className="mt-2 text-sm text-gray-400">
+                <strong className="text-blue-400">Duration:</strong> {selectedProject.duration} | 
+                <strong className="text-blue-400"> Collaboration:</strong> {selectedProject.collaboration}
+              </p>
+              <hr className="my-4 border-gray-700" />
+              <h3 className="text-2xl font-bold text-blue-400 mb-2">Project Highlights</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                {selectedProject.highlights.map((highlight, i) => (
+                  <li key={i} className="text-base text-gray-200">{highlight}</li>
+                ))}
+              </ul>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {selectedProject.techStack.map((tech, i) => (
+                  <span key={i} className="bg-gray-700 text-gray-100 px-3 py-1 rounded-full text-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-6 flex flex-wrap gap-4">
+                {selectedProject.github_frontend && (
+                  <a href={selectedProject.github_frontend} target="_blank" rel="noopener noreferrer" 
+                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm">
+                    GitHub Frontend
+                  </a>
+                )}
+                {selectedProject.github_backend && (
+                  <a href={selectedProject.github_backend} target="_blank" rel="noopener noreferrer" 
+                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm">
+                    GitHub Backend
+                  </a>
+                )}
+                {selectedProject.github && (
+                  <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" 
+                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm">
+                    GitHub
+                  </a>
+                )}
+                {selectedProject.liveDemo && (
+                  <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" 
+                    className="text-blue-400 hover:text-blue-300 font-semibold text-sm">
+                    Live Demo
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>
       )}
     </section>
   );
+  
 };
 
 export default Projects;
