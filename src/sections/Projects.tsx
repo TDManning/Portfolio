@@ -177,20 +177,6 @@ export const Projects: React.FC = () => {
     }
   };
 
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.video.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.video.length - 1 : prev - 1
-      );
-    }
-  };
-
   const getThumbnailSrc = (project: typeof projects[number]) => {
     const thumbnails: { [key: string]: string } = {
       "Music Festival Scheduler": "/homepage.png",
@@ -237,79 +223,79 @@ export const Projects: React.FC = () => {
 
   {isModalOpen && selectedProject && (
     <div
-      className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-2 sm:p-4 overflow-y-auto"
-      onClick={handleBackgroundClick}
-    >
-    <div
-      className="relative bg-black p-6 sm:p-8 rounded-lg w-full max-w-[95%] sm:max-w-[90%] md:max-w-[75%] lg:max-w-[65%] text-white flex flex-col sm:flex-row items-center 
-      max-h-[90vh] overflow-y-auto"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <div className="w-full sm:w-2/3 flex flex-col items-center">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-center">
-          {selectedProject.title}
-        </h2>
-        <img
-          src={selectedProject.video[currentImageIndex]}
-          alt={selectedProject.title}
-          className="w-full h-auto max-h-[50vh] sm:max-h-[75vh] object-contain rounded-lg shadow-lg"
-        />
-      </div>
-
-      <div className="w-full sm:w-1/3 flex flex-col mt-4 sm:mt-0 px-2 sm:px-4">
-        <p className="text-sm sm:text-lg text-blue-300 font-semibold leading-relaxed">
-          {selectedProject.description}
-        </p>
-
-        <p className="mt-2 text-xs sm:text-sm text-gray-400">
-          <strong className="text-blue-400">Duration:</strong> {selectedProject.duration} | 
-          <strong className="text-blue-400"> Collaboration:</strong> {selectedProject.collaboration}
-        </p>
-
-        <h3 className="text-lg sm:text-xl font-bold text-blue-400 mt-4">Project Highlights</h3>
-        <ul className="list-disc pl-4 space-y-1 sm:space-y-2">
-          {selectedProject.highlights.map((highlight, i) => (
-            <li key={i} className="text-xs sm:text-sm text-gray-200">{highlight}</li>
-          ))}
-        </ul>
-        <div className="mt-4 flex flex-wrap gap-1 sm:gap-2">
-          {selectedProject.techStack.map((tech, i) => (
-            <span key={i} className="bg-gray-700 text-gray-100 px-2 py-1 rounded-full text-xs sm:text-sm">
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-4 flex flex-col space-y-2">
-          {selectedProject.github_frontend && (
-            <a href={selectedProject.github_frontend} target="_blank" rel="noopener noreferrer" 
-              className="text-blue-400 hover:text-blue-300 font-semibold text-xs sm:text-sm">
-              GitHub Frontend
-            </a>
-          )}
-          {selectedProject.github_backend && (
-            <a href={selectedProject.github_backend} target="_blank" rel="noopener noreferrer" 
-              className="text-blue-400 hover:text-blue-300 font-semibold text-xs sm:text-sm">
-              GitHub Backend
-            </a>
-          )}
-          {selectedProject.liveDemo && (
-            <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" 
-              className="text-blue-400 hover:text-blue-300 font-semibold text-xs sm:text-sm">
-              Live Demo
-            </a>
-          )}
-        </div>
-      </div>
-
-      <button
-        className="absolute top-2 right-3 text-white text-3xl sm:text-4xl"
-        onClick={() => setIsModalOpen(false)}
-      >
-        &times;
-      </button>
+  className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-2 sm:p-4 overflow-y-auto"
+  onClick={handleBackgroundClick}
+>
+  <div
+    className="relative bg-black p-6 sm:p-8 rounded-lg w-full max-w-[95%] sm:max-w-[90%] md:max-w-[75%] lg:max-w-[60%] text-white flex flex-col sm:flex-row items-center 
+    max-h-[85vh] overflow-y-auto"
+    onClick={(e) => e.stopPropagation()}
+  >
+    <div className="w-full sm:w-2/3 flex flex-col items-center">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-center">
+        {selectedProject.title}
+      </h2>
+      <img
+        src={selectedProject.video[currentImageIndex]}
+        alt={selectedProject.title}
+        className="w-full h-auto max-h-[60vh] sm:max-h-[70vh] object-contain rounded-lg shadow-lg"
+      />
     </div>
+
+    <div className="w-full sm:w-1/3 flex flex-col mt-4 sm:mt-0 px-2 sm:px-4">
+      <p className="text-sm sm:text-lg text-blue-300 font-semibold leading-relaxed">
+        {selectedProject.description}
+      </p>
+
+      <p className="mt-2 text-xs sm:text-sm text-gray-400">
+        <strong className="text-blue-400">Duration:</strong> {selectedProject.duration} | 
+        <strong className="text-blue-400"> Collaboration:</strong> {selectedProject.collaboration}
+      </p>
+
+      <h3 className="text-lg sm:text-xl font-bold text-blue-400 mt-4">Project Highlights</h3>
+      <ul className="list-disc pl-4 space-y-1 sm:space-y-2">
+        {selectedProject.highlights.map((highlight, i) => (
+          <li key={i} className="text-xs sm:text-sm text-gray-200">{highlight}</li>
+        ))}
+      </ul>
+      <div className="mt-4 flex flex-wrap gap-1 sm:gap-2">
+        {selectedProject.techStack.map((tech, i) => (
+          <span key={i} className="bg-gray-700 text-gray-100 px-2 py-1 rounded-full text-xs sm:text-sm">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-4 flex flex-col space-y-2">
+        {selectedProject.github_frontend && (
+          <a href={selectedProject.github_frontend} target="_blank" rel="noopener noreferrer" 
+            className="text-blue-400 hover:text-blue-300 font-semibold text-xs sm:text-sm">
+            GitHub Frontend
+          </a>
+        )}
+        {selectedProject.github_backend && (
+          <a href={selectedProject.github_backend} target="_blank" rel="noopener noreferrer" 
+            className="text-blue-400 hover:text-blue-300 font-semibold text-xs sm:text-sm">
+            GitHub Backend
+          </a>
+        )}
+        {selectedProject.liveDemo && (
+          <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" 
+            className="text-blue-400 hover:text-blue-300 font-semibold text-xs sm:text-sm">
+            Live Demo
+          </a>
+        )}
+      </div>
+    </div>
+
+    <button
+      className="absolute top-2 right-3 text-white text-3xl sm:text-4xl"
+      onClick={() => setIsModalOpen(false)}
+    >
+      &times;
+    </button>
   </div>
+</div>
 )}
     </section>
   );
