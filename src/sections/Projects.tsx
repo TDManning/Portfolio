@@ -106,7 +106,7 @@ const projects = [
     ],
     video: [rancidTomatillos],
     techStack: ["React", "JavaScript", "CSS", "HTML", "Cypress"],
-    github: "https://github.com/TDManning/rancid-tomatillos",
+    github_frontend: "https://github.com/TDManning/rancid-tomatillos",
     liveDemo: "https://rancid-tomatillos-a8epnhzkd-tdmannings-projects.vercel.app/",
   },
   {
@@ -120,7 +120,7 @@ const projects = [
     ],
     video: [romCom],
     techStack: ["JavaScript", "CSS", "HTML"],
-    github: "https://github.com/TDManning/self-care-center",
+    github_frontend: "https://github.com/TDManning/self-care-center",
     liveDemo: "https://tdmanning.github.io/self-care-center/",
   },
   {
@@ -136,7 +136,7 @@ const projects = [
     ],
     video: [coloRandom],
     techStack: ["JavaScript", "CSS", "HTML"],
-    github: "https://github.com/TDManning/coloRandomSite",
+    github_frontend: "https://github.com/TDManning/coloRandomSite",
     liveDemo: "https://tdmanning.github.io/coloRandomSite/",
   },
   {
@@ -151,7 +151,7 @@ const projects = [
     ],
     video: [rockPaperScissor],
     techStack: ["JavaScript", "CSS", "HTML"],
-    github: "https://github.com/TDManning/Rock-Paper-Scissors",
+    github_frontend: "https://github.com/TDManning/Rock-Paper-Scissors",
     liveDemo: "https://tdmanning.github.io/Rock-Paper-Scissors/",
   },
 ];
