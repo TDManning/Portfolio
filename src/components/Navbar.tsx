@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
           <DarkModeToggle />
           <SocialLinks />
           <a 
-            href="/terra-manning-student-resume.pdf" 
+            href="/Terra-Manning-Resume.pdf" 
             download 
             className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition"
           >

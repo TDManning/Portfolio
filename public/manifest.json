@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Portfolio",
+  "name": "My Portfolio",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,9 +8,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "icons": []
     },
     {
       "src": "logo512.png",
@@ -18,8 +16,13 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "web_accessible_resources": [
+    "src/assets/styles.css",
+    "src/assets/locales/en/translation.json"
+  ]
+
 }
