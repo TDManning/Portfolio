@@ -192,27 +192,21 @@ export const Projects: React.FC = () => {
   };
 
   const getThumbnailSrc = (project: typeof projects[number]) => {
-    if (project.title === "Music Festival Scheduler") {
-      return "/homepage.png"; 
-    } else if (project.title === "Mood Boost") {
-      return "/Home-Page.png";
-    } else if (project.title === "Tracker, by Turing") {
-      return "/TrackerImage.png";
-    } else if (project.title === "Little Shop") {
-      return "/LitleShopHome.png";
-    } else if (project.title === "Hang In There") {
-      return "/motivational-posters.png";
-    } else if (project.title === "Rancid Tomatillos") {
-      return "/Rancid.png";
-    } else if (project.title === "RomCom") {
-      return "/RomCom.png";
-    } else if (project.title === "ColoRandom") {
-      return "/ColoRandom.png";
-    } else if (project.title === "Rock Paper Scissors") {
-      return "/rock-paper-scissor.png";
-    }
-    return project.video[0];
+    const thumbnails: { [key: string]: string } = {
+      "Music Festival Scheduler": "/homepage.png",
+      "Mood Boost": "/Home-Page.png",
+      "Tracker, by Turing": "/TrackerImage.png",
+      "Little Shop": "/LittleShopHome.png",
+      "Hang In There": "/motivational-posters.png",
+      "Rancid Tomatillos": "/Rancid.png",
+      "RomCom": "/RomCom.png",
+      "ColoRandom": "/ColoRandom.png",
+      "Rock Paper Scissors": "/rock-paper-scissor.png"
+    };
+  
+    return thumbnails[project.title] || "/default-thumbnail.png";
   };
+  
 
   return (
     <section className="p-4 sm:p-8">
@@ -224,27 +218,28 @@ export const Projects: React.FC = () => {
           Welcome to my projects page! Here, you'll find a collection of apps I've built, ranging from solo work to collaborative team projects.
         </p>
       </AnimatedDiv>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 mt-8">
-        {projects.map((project, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 mt-8">
+          {projects.map((project, index) => (
           <div
             key={index}
-            className="relative cursor-pointer overflow-hidden rounded-lg border border-gray-300 bg-white p-3 sm:p-4 shadow-md hover:shadow-lg transition"
+            className="relative cursor-pointer overflow-hidden rounded-lg border border-gray-300 bg-white p-3 shadow-md hover:shadow-lg transition 
+            aspect-[7/6] max-w-full"
             onClick={() => openModal(project)}
-          >
+            >
             <img
-              src={project.video[0]}
-              alt={project.title}
-              className="object-contain w-full h-auto rounded-lg"
+            src={getThumbnailSrc(project)}
+            alt={project.title}
+            className="object-contain w-full h-full rounded-lg"
             />
-            <h2 className="text-lg sm:text-xl font-semibold text-center mt-2">{project.title}</h2>
           </div>
         ))}
-      </div>
-      {isModalOpen && selectedProject && (
-  <div
-    className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-2 sm:p-4 overflow-y-auto"
-    onClick={handleBackgroundClick}
-  >
+    </div>
+
+  {isModalOpen && selectedProject && (
+    <div
+      className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-2 sm:p-4 overflow-y-auto"
+      onClick={handleBackgroundClick}
+    >
     <div
       className="relative bg-black p-6 sm:p-8 rounded-lg w-full max-w-[95%] sm:max-w-[90%] md:max-w-[75%] lg:max-w-[65%] text-white flex flex-col sm:flex-row items-center 
       max-h-[90vh] overflow-y-auto"
@@ -316,7 +311,6 @@ export const Projects: React.FC = () => {
     </div>
   </div>
 )}
-
     </section>
   );
 };
